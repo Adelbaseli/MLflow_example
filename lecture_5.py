@@ -39,3 +39,6 @@ mlflow.autolog()
 with mlflow.start_run(run_name="sklearn model auto run"):
     lr = LogisticRegression(**params)
     lr.fit(X_train, y_train)
+
+    
+    mlflow.sklearn.log_model(sk_model=lr, name='my-model', registered_model_name='best-production-model')
